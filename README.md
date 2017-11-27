@@ -29,8 +29,8 @@ sh stopfileMonitor.sh
 
 3.	Use the below command to see the stdout/stderr log file – 
 
-tail –f <location of stdout_log_file>
-tail –f <location of stderr_log_file>
+tail –f <<location of stdout_log_file>>
+tail –f <<location of stderr_log_file>>
 
 4.	A file named fileUpdateDetails.txt will be created in FileWatcher directory. This will contain the details of change in the input file. This file can be pursued by other applications for analysis of the changes happened to the input file.
 
