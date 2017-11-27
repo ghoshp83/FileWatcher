@@ -5,7 +5,7 @@ Steps to Install:
 
 1.	Please install Java package 1.7.x.x in production/test environment.
 2.	Set JAVA_HOME and PATH according to java installation directory. Verify using java –version command. It should show java version as 1.7.x.x
-3.	Take ‘FileWatcher.tar’ from the source environment to production/test environment.
+3.	Take ‘FileWatcher.tar’ from this github repository to production/test environment.
 4.	Create a directory named ‘FileWatcher’ and place ‘FileWatcher.tar’ inside it.
 5.	Unzip ‘FileWatcher.tar’ using below command –
 tar –xvf FileWatcher.tar
@@ -29,15 +29,25 @@ sh stopfileMonitor.sh
 
 3.	Use the below command to see the stdout/stderr log file – 
 
-tail –f << location of stdout_log_file >>
-tail –f << location of stderr_log_file >>
+tail –f {location of stdout_log_file}
+tail –f {location of stderr_log_file}
 
 4.	A file named fileUpdateDetails.txt will be created in FileWatcher directory. This will contain the details of change in the input file. This file can be pursued by other applications for analysis of the changes happened to the input file.
 
 Steps to Integration:
 	
 1.	This application is an infinite running standalone application. The input to this application is a textual file (which needs to be monitored for infinite time) and the output of this application is a text file which will store the changes made on the input file.
-2.	Other application can use this application jar (filemonitor.jar) in their execution class-path and call the application class with the input file argument. 
+2.	Other application can use this application jar (filemonitor.jar) in their execution class-path and call the application class with the input file argument. Below code for reference(calling from java application) -
+ 	import com.pralay.fileMonitor;
+	public class fileMonitor {
+		public static void main(String[] args){
+			try{
+				FileMonitor.main(args);				
+			}catch(Exception e)
+				e.printStackTrace();
+		}
+	}
+	
 3.	One can use the steps of execution (as mentioned above) to run this application for the first time and use the output file for their application use. This will be applicable in Unix/Linux environment.
 4.	Other application can use the below java code to use the output file for further analysis and use in their application as per business requirement. 
 
