@@ -50,6 +50,27 @@ Steps to Integration:
 	
 3.	One can use the steps of execution (as mentioned above) to run this application for the first time and use the output file for their application use. This will be applicable in Unix/Linux environment.
 4.	Other application can use the below java code to use the output file for further analysis and use in their application as per business requirement. 
+	import java.io.BufferedReader;
+	import java.io.File;
+	import java.io.FileReader;
+	public class Reader{
+		public static void main(String[] args){
+			try{
+				File file = new File(args[0]);
+				if(file.exists() && !file.isDirectory()){
+					BufferedReader input = new BufferedReader(new FileReader(file));
+					String line;
+					while((line = input.readline())!=null)
+						System.out.println(line);
+					input.close();
+				}else {
+				System.out.println("No File Update are available!");
+				}
+			}catch(Exception e)
+				e.printStackTrace();
+		}
+	}
+	
 
 Reusability Factor:
 	
