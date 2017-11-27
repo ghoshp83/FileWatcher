@@ -17,7 +17,7 @@ Steps to Execution:
 
 1.	Use the below command to start the execution(inside FileWatcher folder) –
 
-nohup sh startfileMonitor.sh <location of file to be monitored> >> <location of stdout log> 2>><location of stderr log> &
+nohup sh startfileMonitor.sh {location of file to be monitored} >> {location of stdout log} 2>>{location of stderr log} &
 
 For example – 
 
